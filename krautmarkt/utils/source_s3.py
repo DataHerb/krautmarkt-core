@@ -4,7 +4,7 @@ from loguru import logger
 from krautmarkt.utils.models import SourceModel
 
 
-def SourceS3(SourceModel):
+class SourceS3(SourceModel):
     """
     SourceS3 take the data folders in S3 and generate the corresponding index
     """
@@ -109,8 +109,8 @@ def fetch_metadata(path_to_datasets):
 
 if __name__ == "__main__":
 
-    default_path_to_datasets = "lma/krautmarkt"
-    ms = SourceS3(path_to_datasets=default_path_to_datasets)
+    default_path_to_datasets = "krautmarkt-test/krautmarkt"
+    ms = SourceS3(default_path_to_datasets)
     ms.fetch_metadata()
 
     print(ms.metas)
