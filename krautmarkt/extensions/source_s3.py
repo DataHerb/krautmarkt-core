@@ -1,16 +1,13 @@
 import json
 import s3fs
 from loguru import logger
-from krautmarkt.utils.models import SourceModel
+from krautmarkt.core.models import SourceModel
 
 
 class SourceS3(SourceModel):
     """
     SourceS3 take the data folders in S3 and generate the corresponding index
     """
-    def __init__(self, path_to_datasets: str):
-        self.path_to_datasets = path_to_datasets
-        self.metas = []
 
     def fetch_metadata(self) -> list:
         """
